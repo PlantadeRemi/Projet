@@ -1,3 +1,2 @@
-Projet
-Lancement du document Latex !
-A ton tour de te lancer
+Projet S3
+Synchronisation des métronomes
