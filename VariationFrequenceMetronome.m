@@ -5,7 +5,7 @@ close all
 D = load('TransitoiresDeuxMetronomes(HauteFréquence).txt');
 %On défini la taille du tableau contenu dans le fichier
 taille = length(D(:,1));
-%On crée une valur temporaire d'incrémentation
+%On crée une valeur temporaire d'incrémentation
 i = 1;
 x = zeros(1,300);
 y = zeros(1,300);
