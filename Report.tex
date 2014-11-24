@@ -1,39 +1,55 @@
-\documentclass[a4paper,12pt]{report}
-
-
-\usepackage[latin1]{inputenc} % un package
-\usepackage[T1]{fontenc}      % un second package
-%\usepackage[french]{babel}  % un troisième package
-
-
+\documentclass[a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[francais]{babel}
+\usepackage{graphicx}
+%\usepackage{fullpage}
+%\usepackage{eso-pic}
+ 
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+ 
+\newcommand{\blap}[1]{\vbox to 0pt{#1\vss}}
+\newcommand\AtUpperLeftCorner[3]{%
+  \put(\LenToUnit{#1},\LenToUnit{\dimexpr\paperheight-#2}){\blap{#3}}%
+}
+\newcommand\AtUpperRightCorner[3]{%
+  \put(\LenToUnit{\dimexpr\paperwidth-#1},\LenToUnit{\dimexpr\paperheight-#2}){\blap{\llap{#3}}}%
+}
+ 
+\title{\LARGE{Rapport de projet}}
+\author{\textsc{Merrien} Tony \textsc{Plantade} Rémi \\Synchronisation des métronomes\\Année universitaire 2014/2015}
+\date{\today}
 \makeatletter
-  \begin{titlepage}
-  \centering
-      {\large \textsc{Rapport Projet Licence 2 Sciences pour l'ing\'enieur}}\\
-      \textsc{Synchronisation des m\'etronomes}\\
-    \vspace{1cm}
-     % \includegraphics[width=0.25\textwidth]{logo1.jpeg}
-      \hfill
-      %\includegraphics[width=0.35\textwidth]{logo2.jpeg}\\
-    \vspace{1cm}
-      {\large\textbf{	\@date\\
-       coucou}}\\
-    \vfill
-       {\LARGE \textbf{\@title}} \\
-    \vspace{2em}
-        {\large \@author} \\
-    \vfill
-       % \includegraphics[height=0.07\textheight]{partenaire1.png}
-        \hfill
-        %\includegraphics[height=0.1\textheight]{partenaire21.jpg}
-  \end{titlepage}
-
-%\title{Synchronisation des métronomes} 
-%\author{Merrien Tony \and Plantade Rémi} 
-%\date{20 11 2014} 
-
+ 
 \begin{document}
-Bonjour !\\
-Nous allons commenc\'e  par : \\
-o
-\end{document}}
+ 
+\begin{titlepage}
+    %\AddToShipoutPicture{%
+      %\AtUpperLeftCorner{1.5cm}{1cm}{\includegraphics[width=4cm]{data/google.jpg}}
+      %\AtUpperRightCorner{1.5cm}{1cm}{\includegraphics[width=6.5cm]{data/ensi.jpg}}
+    }
+ 
+    \begin{center}
+        \vspace*{10cm}
+        \textsc{\@title}
+        \HRule
+        \vspace*{0.5cm}
+        \large{\@author} 
+    \end{center}
+ 
+    \vspace*{5cm}
+   % \begin{center}
+     % \makebox[\textwidth]{\includegraphics[width=\paperwidth]{data/logo.png}}
+  %  \end{center}
+    \vspace*{0.2cm}
+ 
+    \begin{flushright}
+        ENSICAEN\\
+        6, boulevard Maréchal Juin - F. 14050 Caen\\
+        Tél. +33 (0)2 31 45 27 50\\
+        Fax +33 (0)2 31 45 27 60 
+    \end{flushright}
+\end{titlepage}
+\ClearShipoutPicture
+ 
+\end{document}
