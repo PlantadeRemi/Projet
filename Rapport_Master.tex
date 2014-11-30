@@ -15,10 +15,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{document}
+
 %----------------------------------------------------------------------------------------------------------
 %				PAGE DE GARDE
 %----------------------------------------------------------------------------------------------------------
-
 \makeatletter
 \def\clap#1{\hbox to 0pt{\hss #1\hss}}%
 \def\ligne#1{%
@@ -55,8 +56,9 @@
 \Large \@author
 \par
 \end{flushright}
-\vspace{1cm}
-\vfill
+\vspace{3.5cm}
+\centering
+\includegraphics[width=0.4\textwidth]{Photo_univlemans} \hfill
 \vfill
 \bas{}{\@location}{}
 }%
@@ -70,7 +72,7 @@
 \title{}
 \location{Le Mans}\blurb{}
 \makeatother
-\title{Synchronisation des m\'etronomes}
+\title{Synchronisation Mutuelle des M\'etronomes}
 \author{Tony Merrien \& R\'emi Plantade}
 \location{Le Mans, Année Universitaire 2014-2015}
 \blurb{%
@@ -83,8 +85,9 @@ Encadrant : Guillaume Penelet
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{document}
+
 \maketitle  %génère la page de garde
+
 \newpage  %comme son nom l'indique ...
 \pagenumbering{roman} \setcounter{page}{1} %les pages commencent à être numérotées en lettre romaines.
 
@@ -109,16 +112,17 @@ Encadrant : Guillaume Penelet
 \addcontentsline{toc}{chapter}{Introduction} %Ce chapitre n'est pas numéroté mais apparaitra dans la table des matières gràce à cette commande.
 \pagenumbering{arabic} \setcounter{page}{1} %Le numéro de page est remis à zéro et la numérotation est en chiffre arabe
 
- La synchronisation est un phénomène universellement observable et étudié. Une foule qui applaudit, des personnes marchant côte à côte, jusqu'au pendule de Huygens et aux métronomes que nous allons étudier dans l'ensemble de ce projet. Phénomène découvert dans les années (?) par (?) Huygens alors qu'il cherchai à résoudre le problème de calcul de longitude naval. En éffet, constata que deux pendule solidaire d'un support finnissai toujours par se synchroniser. Nous allons ici étudier plus en détail ce phénomène, à l'aide de constatation, de mesure sonore, de travaux théoriques pour différentes conditions expérimentales. Accrochez vos ceintures !
- 
+ La synchronisation est un phénomène universellement observable et étudié depuis des siècles. Une foule qui applaudit, des personnes marchant côte à côte, les pendules de Huygens et les métronomes que nous allons étudier dans l'ensemble de ce projet sont les conséquences directement observable de ce phénomène physique. Découvert dans les années 1665 par Christiann Huygens alors qu'il cherchai à aider les hommes partant en mer pour de longue période afin de ne jamais perdre le fil du temps. Il constata que deux pendules solidaires d'un support finnissaient toujours par se synchroniser. Nous allons ici étudier plus en détail ce phénomène, à l'aide de constatation visuelle, de mesures sonores et de travaux théoriques pour différentes conditions expérimentales.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter{La synchronisation, késako?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{La synchronisation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Définitions}
 
+Synchronisation (universelle) :
+
+Synchronisation (scientifique) : 
 
 \subsection{}
 
@@ -129,7 +133,40 @@ Encadrant : Guillaume Penelet
 \subsection{}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%bibliography
+\renewcommand{\bibname}{Références} 
+\begin{thebibliography}{2}
+\section*{Bibliographie}
+  % \bibitem[label]{cle} Auteur, TITRE, editeur, annee
+   \bibitem{lam1} PIKOVSKY, {\it Synchronisation, A Non Linear Science, REF, 1994}
+  \bibitem{chev} C. CHEVALIER, {\it \LaTeX{} pour l'impatient , H\&K, 2009} 
+  \bibitem{maq} N.-A. MAQUIS, {\it Rédigez des documents de qualité avec \LaTeX , Livre du zéro, 2010} 
+\section*{Webographie}
+\bibitem{grappa} \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX/}
+\bibitem{wiki} \url{http://fr.wikipedia.org/wiki/Synchronisation}
+\bibitem{symbol} \url{http://amath.colorado.edu/documentation/LaTeX/Symbols.pdf}
+\end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Conclusion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{chapter}{Conclusion} %permet d'inclure le chapitre conclusion dans la table des matières
+
+La synchronisation...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix 
+\chapter{Programmes Matlab}
+\label{garde}
+
+\begin{verbatim}
+
+
+
+\end{verbatim}}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
