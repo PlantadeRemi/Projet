@@ -1,11 +1,14 @@
 \documentclass[a4paper,11pt]{report}
 \usepackage[T1]{fontenc} % pour écrire en français
 \usepackage[francais]{babel} %pour écrire en français
+\frenchbsetup{StandardLists=true}
 \usepackage[utf8x]{inputenc} %encodage en UTF-8
 \usepackage{fancyhdr} %pour gérer les en-têtes et pieds de page
 \usepackage{amsmath,amscd,amssymb} %pour insérer des expressions scientifiques
 \usepackage[pdftex]{graphicx} %pour inclure des figures
 \usepackage{subfig}
+\usepackage{enumitem}
+\usepackage{amssymb}
 \usepackage{hyperref} %pour créer des liens hyper-textes
 \usepackage{verbatim} %pour citer du code Latex ou autre
 \usepackage{url} %pour citer une adresse web
@@ -100,9 +103,9 @@ Encadrant : Mr. Guillaume Penelet, Enseignant-chercheur
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction} %Ce chapitre n'est pas numéroté mais apparaitra dans la table des matières gràce à cette commande.
 \pagenumbering{arabic} \setcounter{page}{1} %Le numéro de page est remis à zéro et la numérotation est en chiffre arabe
-	La synchronisation est un phénomène universellement observable et étudié depuis des siècles. Une foule qui applaudit, le chant de criquets, les piles cardiaques et les métronomes étudiés dans l'ensemble de ce projet sont les conséquences, enjeux et applications directement observable de ce phénomène physique.\\
+	La synchronisation est un phénomène universellement observable et étudié depuis des siècles. Une foule qui applaudit, le chant de criquets, les piles cardiaques et les métronomes étudiés dans l'ensemble de ce projet sont les conséquences, enjeux et applications directement observables de ce phénomène physique.\\
 
-	La synchronisation est le terme utilisé, dans un sens large, pour caractériser une coordination d'opérations au cours du temps. Découvert dans les années 1665 par Christiaan Huygens alors qu'il cherchait à aider les hommes partant en mer pour de longues périodes afin de ne jamais perdre le fil du temps, il constata que deux pendules solidaires d'un support finnissaient toujours par se synchroniser avec une certaine phase.\\
+	La synchronisation est le terme utilisé, dans un sens large, pour caractériser une coordination d'opérations au cours du temps. Découvert en 1665 par Christiaan Huygens alors qu'il cherchait à aider les hommes partant en mer pour de longues périodes afin de déterminer la longitude, chose difficile si la mesure du temps est peu précise. Il constata que deux pendules solidaires d'un support finnissaient toujours par se synchroniser avec une certaine phase.\\
 
 	Dans le prolongement d'une étude précédement effectuée par deux étudiants en L3 SPI, ce projet dans son aspect de recherche mettera en corrélation, dans un premier temps, les observartions déja éffectuées et, par la suite, approfondira les aspects expérimentaux. Le phénomène est étudié en détails à l'aide de différentes manipulations mettant en oeuvre toujours deux métronomes mécaniques. Ces expériences sont éffectuées sur un banc de mesure explicité plus loin. Les résultats obtenus sont interpretés et traités numériquement pour mettre en relation théorie et experiences.
 
@@ -115,14 +118,14 @@ Encadrant : Mr. Guillaume Penelet, Enseignant-chercheur
 \section{Définitions}
 Dans cette partie, l'intégralité du projet, des hypothèses, du matériel, des phénomènes, des définitions et du procédé expérimental est développé.\\
 \underline{Synchronisation (universelle)}: "Coordination de plusieurs opérations entre elles en fonction du temps"\cite{wiki}\\
-\underline{Synchronisation (scientifique)}: "Procédé pour rendre synchrones deux systèmes oscillant mécaniquement de manière indépendant"\cite{cntrl}\\
+\underline{Synchronisation (scientifique)}: "Procédé pour rendre synchrones deux systèmes oscillant mécaniquement de manière indépendante"\cite{cntrl}\\
 \underline{Pendule}: "Corps ou système matériel capable d'osciller en un point fixe"\cite{ikonet}\\
 \underline{Métronome}: "Appareil pendulaire mû par un ressort dont on peut régler la pulsation."\cite{pend} \\
 
 \section{Matériel}
 
-La liste du méteriel utilisé est la suivante:
-\begin{itemize}
+La liste du méteriel utilisé est la suivante:\\
+\begin{itemize}[label=\textbullet, leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item Carte d'acquisition National Instruments ;
 \item Deux microphones Roga Instruments MI-17 ;
 \item Deux pieds microphoniques ;
@@ -138,38 +141,25 @@ La liste du méteriel utilisé est la suivante:
 
 \section{Banc de mesure}
 
-Le matériel est utilisé de la manière suivante, la plaque (ici en bois) est placée sur deux canettes parallèles entre elles, la même où sont placés les deux métronomes. Deux microphones, reliés à la carte d'acquisition par le biais d'un préamplificateur, sont placés proches de chaque métronomes afin de relever les clics de ceux-ci, séparés par un bloc de mousse acoustiquement isolante.\\
+Le matériel est utilisé de la manière suivante: la plaque (ici en bois) est placée sur deux canettes parallèles entre elles, la même où sont placés les deux métronomes mécaniques. Deux microphones, reliés à la carte d'acquisition par le biais d'un préamplificateur, sont placés proches de chaque métronomes afin de relever les clics sonores de ceux-ci, séparés par un bloc de mousse acoustiquement isolante.\\
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{BancMesure}
 \caption{Banc de mesure}\label{Banc}
 \end{figure}\\
-Ce dispositif permet d'isoler de manière sonore chaque clic des métronomes et ainsi faciliter un traitement numérique ultérieur, sans inteférer sur le système d'une manière quelquconque.
+Ce dispositif permet d'isoler de manière sonore chaque clic des métronomes et ainsi faciliter un traitement numérique ultérieur, sans inteférer sur le système d'une quelconque manière.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Experiences}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fonctionnement d'un métronome}
-La réalisation des expériences etant maintenant permise, il est nécessaire de caractériser par l'ensemble de l'équipement. Par suite de ce rapport, on prend soin de faire la différence entre battement d'un métronome (BPM) et fréquence d'oscilation (Hz). Dans une approche de meilleure compréhension d'un auto oscillateur mécanique, un métronome a été démentelé. Il est bénéfique d'avoir une meilleure compréhension de leurs mécanismes internes.\\
-
-Photophoto
+La réalisation des expériences étant maintenant permise, il est nécessaire de caractériser  l'ensemble de l'équipement. Par suite de ce rapport, on prend un soin particulier à faire la différence entre battement d'un métronome (BPM) et fréquence d'oscilation (Hz). Dans une approche de meilleure compréhension d'un auto oscillateur mécanique, un métronome est  démentelé. Il est bénéfique d'avoir une meilleure compréhension de leurs mécanismes internes. Ainsi il est remarqué que remonter un métronome est en fait l'action qui tend le ressort interne servant de mécanisme d'action sur le balancement de la masse. Il est donc nécéssaire de remonter régulièrement, pour des précisions optimales, les métronomes. \\
 
 \section{Caractérisation de l'équipement}
-Avant toute manipulation, afin de simplifier les explications, on utilisera le terme "{\it Mr White}" pour désigner le métronome blanc et "{\it Mr Brown}" pour désigner le métronome marron.
-Suite à divers experiences, on constate une valeurs de battements peu fiable. Celle indiquée sur le métronome n'est pas le véritable battement des métronomes. De ce fait, ceux-ci sont caractérisé de manière précise pour chaque mesure de synchronisation. Le programme présenté en \underline{Annexe \ref{Battements}}, crée pour calculer le véritable battement des métronomes en fonction du temps. Ainsi, pour chacune des mesures suivantes, ce n'est pas la valeur présentée sur métronome qui sera prise en compte, mais celle obtenue par le l'analyse numérque éffectuée de manière systématique.
+Avant toute manipulation, afin de simplifier les explications, on utilisera le terme "{\it Mr White}" pour désigner le métronome blanc et "{\it Mr Brown}" pour désigner le métronome marron. Suite à divers experiences, les valeurs de battements inscrites sur lesappareils sont peu fiables. Celles indiquées ne sont pas les véritables battements des métronomes. De ce fait, ceux-ci sont caractérisés de manière précise pour chaque mesure de synchronisation. Le programme présenté en \underline{Annexe \ref{Battements}}, est crée pour calculer le véritable battement des métronomes en fonction du temps. Ainsi, pour chacune des mesures suivantes, ce n'est pas la valeur présentée sur métronome qui sera prise en compte, mais celle obtenue par le l'analyse numérque éffectuée de manière systématique.
 
-\section{Limite de synchronisation}
-Battements faible : pas de synchro, synchro a tendance opposition de phase
-La synchronisation opère dans une bande fréquence bien définie. Pour une fréquence imposé à un métronome, la synchronisation opère de manière différentes pour des battements différents.limites de synchronisation
+\section{Synchronisation Experimentale}
 
-	Après avoir étudié et caractérisé le matériel mise à notre disposition, l'étude du phénomène est entamé avec différentes expériences. La synchronisation de métronomes ayant été déjà traité, les premières expériences ont pour but de vérifier les informations obtenus dans ce rapport afin, par la suite, de pousser l'étude au delà.
-	 
-	Lors de la première expérience avec notre banc de mesure, la limite de fréquence des deux métronomes pour qu'il y est synchronisation est recherchée. Pour cela les deux métronomes sont réglés, par le biais de la position de la masselotte sur la tige pour obtenir un battement par minute (BPM) faible, ce qui signifie que la fréquence est basse, environ 50 BPM pour les deux lors de cette première manipulation. Le phénomène ne se produisant pas les métronomes sont réglés sur une autre fréquence plus élevé et la manipulation est renouvelée. Ainsi avec cette expérience la détermination d'une limite de fréquence pour l'observation du phénomène de synchronisation est obtenue. Les résultats acquis sont en accord avec ceux du rapport des étudiants [bibliographie, page 7 8]. En effet la synchronisation entre deux métronomes ne s'effectue pas en basse fréquence et un seuil a été déterminé, qui se situe à 176 BPM. La limite de déplacement de la massette sur le métronome empêche la détermination d'un éventuel seuil de haute fréquence où le phénomène ne se produit plus. Au cours de l'expérience, lorsque les deux métronomes se synchronisent ils sont en opposition de phase. En effet lorsque les métronomes sont désynchronisés la plaque  de déplace sur les cannettes tandis que lorsque les deux métronomes sont synchroniser en opposition de phase la plaque reste immobile, le système est donc à son état d'équilibre. Le transfert d'énergie entre les deux métronomes et le système (plaque en bois et les deux cannettes) est émise ( a reformuler ).
-
-
-\section{Synchronisation par harmonique}
-
-synchronisation pour différentes fréquences entre les deux métronomes
-
+\subsection{Synchronisation pour différents battements}
 	A présent l'étude dans cette partie se porte sur la synchronisation pour une différence de fréquence entre les deux métronomes. Sachant que le phénomène commence à se produire pour au moins 176 BPM, Mr.Brown est réglé sur 180 BPM tandis que Mr.White sur un battement par minute plus faible afin de trouver la limite inférieur où il y a synchronisation. Les deux métronomes sont disposés sur le système afin de déterminer si il y a ou non synchronisation. Si le phénomène se produit alors les deux métronomes sont posés sur la table et leur fréquence est mesurés et traité par un programme. On réitère cette manipulation jusqu'à tomber sur la limite de la différence de fréquence entre les deux métronomes pour qu'il y est synchronisation.   Ensuite Mr.Brown reste fixé a 176 BPM et Mr.White est réglé pour une fréquence supérieure pour que de même que précédemment déterminer la limite mais cette fois si la limite supérieur de la synchronisation pour une différence de fréquences entre les deux métronomes. Cette procédure est répétée pour trouver, suivant la fréquence fixe, les limites et ainsi tracer une courbe afin d'en tiré une analyse du comportement.( a revoir la formulation). 
 	
 					TITRE !!!
@@ -182,12 +172,22 @@ synchronisation pour différentes fréquences entre les deux métronomes
 					
 Une étude est ensuite menée afin de savoir si il y a une synchronisation possible pour des fréquences harmoniques, c'est à dire un métronome fixé à une certaine fréquence f0 et l'autre métronome à un fréquence 2 fois plus ou moins élevé. La manipulation est réalisée avec Mr.Brown réglé à 208BPM et Mr.White à 104BPM. L'expérience n'est pas concluante. En effet précédemment un seuil de fréquence pour obtenir une synchronisation a été trouvé, 176 BPM , or ici Mr.White est réglé à 104BPM qui est bien inférieur au seuil. Les métronomes pouvant allés que jusqu'à 230BPM l'étude sur la synchronisation en régime harmonique est compromise. 
 
+\subsection{Synchronisation par harmonique}
+
+\section{Limite de synchronisation}
+La synchronisation opère dans une bande fréquence bien définie. Pour une fréquence imposé à un métronome, la synchronisation opère de manière différentes pour des battements différents. Après avoir étudié et caractérisé le matériel mise à notre disposition, l'étude du phénomène est entamé avec différentes expériences. La synchronisation de métronomes ayant été déjà traité, les premières expériences ont pour but de vérifier les informations obtenues dans le précédent rapport. Lors de la première expérience avec notre banc de mesure, la limite de fréquence des deux métronomes pour qu'il y est synchronisation est recherchée. Pour cela les deux métronomes sont réglés, par le biais de la position de la masselotte sur la tige pour obtenir un battement par minute (BPM) faible, ce qui signifie que la fréquence est basse, environ 50 BPM pour les deux lors de cette première manipulation. Le phénomène ne se produisant pas les métronomes sont réglés sur une autre fréquence plus élevée et la manipulation est renouvelée. Ainsi avec cette expérience la détermination d'une limite de fréquence pour l'observation du phénomène de synchronisation est obtenue. Les résultats acquis sont en accord avec ceux du rapport des L3 \cite{ram}. En effet la synchronisation entre deux métronomes ne s'effectue pas en basse fréquence et un seuil a été déterminé, qui se situe à 176 BPM. La limite de déplacement de la massette sur le métronome empêche la détermination d'un éventuel seuil de haute fréquence où le phénomène ne se produit plus. Au cours de l'expérience, lorsque les deux métronomes se synchronisent ils sont en opposition de phase. En effet lorsque les métronomes sont désynchronisés la plaque se déplace sur les cannettes tandis que lorsque les deux métronomes sont synchronisés en opposition de phase la plaque reste immobile, le système est donc à son état d'équilibre. Le transfert d'énergie le plus faible possible entre les deux métronomes et le système (plaque en bois et les deux cannettes) est donc naturellement privilégié.
+
 \section{Pot Vibrant}
-Dans cette partie l'étude se porte sur la synchronisation des deux métronomes avec un pot vibrant relié à la plaque en bois. Le pot vibrant est un objet permettant d'exciter le système par le biais, ici, d'un pas de vis relié avec une vis à la plaque en bois. La fréquence d'excitation et son amplitude sont réglés avec l'amplificateur relié au pot vibrant.
+Dans cette partie l'étude se porte sur la synchronisation des deux métronomes avec un pot vibrant relié à la plaque en bois. Le pot vibrant est un objet permettant d'exciter le système par le biais, ici, d'un pas de vis relié avec une vis à la plaque en bois. La fréquence d'excitation et son amplitude sont réglés avec l'amplificateur relié au pot vibrant. Le dispositif experimental est le suivant:
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{Bancpotvibrant}
+\caption{Banc de mesure avec un pot vibrant}\label{BancPot}
+\end{figure}\\
 
-												FORMULE POUR PASSER DES BPM AU HERTZ
+FORMULE POUR PASSER DES BPM AU HERTZ
 
- L'expérience réalisé ici consiste à donner à la plaque en bois une certaine fréquence d'excitation correspond à la fréquence d'oscillation du métronome suivant où est placé la massette et une amplitude d'oscillation au système(à reformuler).
+L'expérience réalisée ici consiste à donner à la plaque en bois une certaine fréquence d'excitation correspond à la fréquence d'oscillation du métronome suivant où est placé la masselotte et une amplitude d'oscillation au système(à reformuler).
 Ainsi avec ce nouveau banc de mesure il est possible d'étudier si les limites de la synchronisation change et d'observer l'influence de l'amplitude sur la synchronisation.
  
 
@@ -195,7 +195,7 @@ Ainsi avec ce nouveau banc de mesure il est possible d'étudier si les limites d
 \chapter{Analyse Numérique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Comparaison théorie}
-Le traitement des données enregistrés est effectué dans cette partie par le biais d'un programme de traitement présenté en \underline{Annexe \ref{Traitement}} basé sur le rapport des L3\cite{ram}. Les courbes obtenues sont analysées et comparées avec le modèle théorique. Précisons que la "théorie" ici n'est pas mathématique, mais celle énoncé de manière écrite dans les différentes ouvrages bibliographiques qui contribue a l'élaboration de ce rapport.
+Le traitement des données enregistrés est effectué dans cette partie par le biais d'un programme de traitement présenté en \underline{Annexe \ref{Traitement}}, basé sur le rapport des L3\cite{ram}. Les courbes obtenues sont analysées et comparées avec le modèle théorique. Précisons que la théorie ici n'est pas mathématique, mais est celle énoncé de manière écrite dans les différentes ouvrages bibliographiques contribuant à l'élaboration de ce rapport.
 \subsection{Interprétation de la caractérisation}
 Dans un premier temps, lors de la caractérisation de chaque métronome dans un cas général, les courbes suivantes sont obtenues. En premier lieu, l'évolution temporelle des clics des métronomes est la suivante:
 \begin{figure}[h]
@@ -230,22 +230,20 @@ Ici, une synchronisation apparait dans les 10 premières secondes de la mesure �
 L'évolution fréquentielle et de la différence de période sont les suivantes:
 \begin{figure}[h]
 \centering
-\begin{tabular}{cc}
-\includegraphics[width=0.5\textwidth]{Synchro_Frequence_208BPM} & \includegraphics[width=0.5\textwidth]{Synchro_Periode_208BPM}\\
-\end{tabular}
-\caption{Evolution fréquentielle et différence période de période des deux métronomes solidaire d'un support au cours du temps}\label{Synchronisation}
+\includegraphics[width=1\textwidth]{Synchro_Frequence_208BPM}
+\caption{Evolution fréquentielle des deux métronomes solidaire d'un support au cours du temps}\label{Synchronisation}
 \end{figure}\\
 Il est dans ce cas très aisé d'obsver une synchronisation.
 
 Harnold Tongues + courbe théorique
 
-\section{"Trap phase"}
-
-bla bla bla
-
 \section{Pot vibrant}
 
 amplitude courbe
+
+\section{"Trap phase"}
+
+bla bla bla
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter*{Conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
