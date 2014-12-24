@@ -176,7 +176,7 @@ A présent l'étude dans cette partie porte sur la limite de synchronisation pou
 Il est possible d'observer sur cette courbe qu'une synchronisation avec des battements pls élevées s'opère de manière pus large. Ainsi avec des abttements plus faible la synchronisation est plus restrainte.\\
 
 \section{Pot Vibrant}
-Dans cette partie l'étude se porte sur la synchronisation des deux métronomes avec un pot vibrant relié à la plaque en bois. Le pot vibrant est un objet permettant d'exciter le système par le biais, ici, d'un pas de vis relié avec une vis à la plaque en bois. La fréquence d'excitation et son amplitude sont réglés avec l'amplificateur relié au pot vibrant. Le dispositif experimental est le suivant:
+Dans cette partie l'étude se porte sur la synchronisation des deux métronomes avec un pot vibrant relié à une plaque en bois. Le pot vibrant est un objet permettant d'exciter le système par le biais, ici, d'un pas de vis relié avec une vis à la plaque en bois. La fréquence d'excitation et son amplitude sont réglés avec l'amplificateur relié au pot vibrant. Le dispositif experimental est présenté Figure \ref{BancPot}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{Bancpotvibrant}
@@ -186,9 +186,9 @@ Dans cette partie l'étude se porte sur la synchronisation des deux métronomes 
 \begin{equation}
 f_{GBF}=\frac{Battement_{metro}}{2t}(f_{harmo})
 \label{fgbf}
-\end{equation}
+\end{equation}\\
 
-L'expérience réalisée ici consiste à donner à la plaque en bois une certaine fréquence d'excitation correspond à la fréquence d'oscillation du métronome suivant où est placé la masselotte et une amplitude d'oscillation au système(à reformuler).
+L'expérience réalisée ici consiste à donner à la plaque en bois une certaine fréquence d'excitation correspond à la fréquence d'oscillation du métronome	 suivant où est placé la masselotte et une amplitude d'oscillation au système(à reformuler).
 Ainsi avec ce nouveau banc de mesure il est possible d'étudier si les limites de la synchronisation change et d'observer l'influence de l'amplitude sur la synchronisation.
 
  L'expérience réalisé ici consiste à donner à la plaque en bois une certaine fréquence d'excitation correspond à la fréquence d'oscillation du métronome suivant où est placé la massette et une amplitude d'oscillation au système(à reformuler).
@@ -219,35 +219,33 @@ On remarque distinctement deux battements périodique dans le temps. Ensuite il 
 Les deux métronomes sont bien à des fréquences différentes. On pet aussi voir qu'un métronome mécanqiue bat difficilementde manière constante fréquentiellement.
 Enfin, puisque les fréquences d'oscillations sont connues, on peut afficher graphiquement la différence de périodes, synonymes lorsque celle ci tend vers 0, de la présence de synchronisation car varation de période d'oscillation. On peut donc obsever l'abscence totale de synchronisation.
 \subsection{Interprétation de la synchronisation}
-Dans cette partie, les analyses précédentes sont répétées dans le cas où les métronomes sont solidaires du support posé sur deux canettes. Ainsi l'évolution temporelle des clics :
+Dans cette partie, les analyses précédentes sont répétées dans le cas où les métronomes sont solidaires du support posé sur deux canettes. Ainsi l'évolution temporelle des clics suit le graphique présenté en Figure \ref{SynchronisationT}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{Synchro_Temporelle_208BPM}
 \caption{Evolution temporelle de deux métronomes solidaire d'un support au cours du temps}\label{SynchronisationT}
 \end{figure}\\
 Ici, une synchronisation apparait dans les 10 premières secondes de la mesure éffectuées.
-L'évolution fréquentielle et de la différence de période sont les suivantes:
+L'évolution fréquentielle et de la différence de période sont obtenues sur la Figure \ref{SynchronisationF}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{Synchro_Frequence_208BPM}
-\caption{Evolution fréquentielle des deux métronomes solidaire d'un support au cours du temps}\label{Synchronisation}
+\caption{Evolution fréquentielle des deux métronomes solidaire d'un support au cours du temps}\label{SynchronisationF}
 \end{figure}\\
-Il est dans ce cas très aisé d'observer une synchronisation.
-
-Harnold Tongues + courbe théorique
+Il est dans ce cas très aisé d'observer une synchronisation. En éffet, les deux métronome ont une période, donc fréquence, différente au début, et au cours du temps finisse par changer leur propre oscillations pour former un battement par minute correspondant théoriquement à la moyenne des deux.
 
 \section{Pot vibrant}
-
+Les experiences menés avec le pot vibrant apporte des résulats très concluant. Contrairement à des oscillations libres, lorsqu'on force le système à osciller, celle-ci opère toujours en phase. En éffet, les masselotte vont naturellement osciller dans le sens qui demande le moins d'éffort au système.
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{PotVibrant_Synchro_Periode_200BPM}
 \caption{Evolution de la différence de période de deux métronomes au cours du temps avec présence d'un pot vibrant}
 \label{SynchroPP}
 \end{figure}
+Harnold Tongues + courbe théorique
 
 \section{"Trap phase"}
-
-bla bla bla
+La Figure \ref{SynchroPP} , permet d'observer un phénomène physique connu sous le nom de "{\it Trap Phase}" ou encore "{\it Attrappage de Phase}". En éffet, aux valeurs de temps 27 et 38 secondes, une valeur de différence de période sors totalement de l'allure générale de la corbe. Cela est dû à une imperfection soudaine dans les oscillations du système qui se traduit par ces valeurs, qui n'influent pas sur les oscillations directement suivantes et qui se répetent après un certain temps.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter*{Conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -316,8 +314,8 @@ n2 = (n2*60/temps)
 \chapter{Analyse numérique: Courbe limite}
 \label{Limite}
 \begin{verbatim}
-%On crée un programme qui affiche les courbes de limute de la synchro en
-%fonction des valeurs obseré?es de manière visuelle
+%On crée un programme qui affiche les courbes de limite de la synchronisation en
+%fonction des valeurs observées de manière visuelle
 clear all
 close all
 
@@ -340,15 +338,16 @@ plot(Metro1, Metro3,'k')
 %Légende
 xlabel('BPM')
 ylabel('BPM')
-legend('Limite inferieure de synchronisation','Battement de reference','Limite superieure de synchroniation',4)
+legend('Limite inferieure de synchronisation','Battement de reference','Limite
+superieure de synchroniation',4)
 title('Evolution de la limite de synchronisation observee en fonction du temps')
 \end{verbatim}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Analyse numérique: Traitement des données}
 \label{Traitement}
 \begin{verbatim}
-%Programme traçant l'évolution de la période de
-%chacun des métronomes au cours du temps :
+%Programme traçant l'évolution de la période de chacun des 
+%métronomes au cours du temps:
 clear all;
 close all;
 %On charge dans un premier temps le fichier texte contenant
@@ -359,7 +358,7 @@ D = load('Synchro Max.txt');
 t=D(:,1);
 %La variable 'Te' est créée. Elle a pour valeur
 %celle de la deuxième case du vecteur 't'.
-%Elle correspond ‡ la période d'échantillonnage :
+%Elle correspond à la période d'échantillonnage :
 Te = t(2);
 %La deuxième colonne de la matrice 'D' est placée dans le vecteur 'm1'.
 %Celle-ci correspond aux donnÈes enregistrées pour le premier métronome :
