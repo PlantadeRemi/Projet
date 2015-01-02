@@ -124,7 +124,7 @@ Dans cette partie, l'intégralité du projet, des hypothèses, du matériel, des
 
 \section{Matériel}
 
-La liste du méteriel utilisé est la suivante:\\
+La liste du méteriel utilisé lors des experiences est la suivante:\\
 \begin{itemize}[label=\textbullet, leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm,font=\tiny]
 \item Carte d'acquisition National Instruments ;
 \item Deux microphones Roga Instruments MI-17 ;
@@ -132,7 +132,7 @@ La liste du méteriel utilisé est la suivante:\\
 \item Deux canettes ;
 \item Un pot vibrant ;
 \item Préamplificateur BSWA MC102 ;
-\item Bloc de mousse
+\item  Un bloc de mousse ;
 \item Deux métronomes mécaniques ;
 \item Un support rectangulaire plat ;
 \item Logiciel CTTM ;
@@ -177,7 +177,7 @@ La synchronisation opère dans une bande fréquence bien définie. L'étude dans
 Il est possible d'observer sur la Figure \ref{LimiteF} qu'une synchronisation avec des battements plus élevés s'opère de manière plus large. Ainsi avec des battements plus faible la synchronisation est plus restreinte. En effet un métronome oscillant plus lentement à moins d'inertie mécanique et est moins en œuvre à entrainer avec lui le système pour osciller à un battement qui est théoriquement une moyenne du battement de {\it Mr.Brown} et de {\it Mr.White} \cite{piko}.
 
 \section{Pot Vibrant}
-Dans cette partie l'étude se porte sur la synchronisation des deux métronomes avec un pot vibrant relié à une plaque en bois. Le pot vibrant est un objet permettant d'exciter le système par le biais, ici, d'un pas de vis relié avec une vis à la plaque en bois. La fréquence d'excitation est réglée à l'aide d'un GBF et son amplitude est réglée avec l'amplificateur associé à celui-ci. Le dispositif expérimental est présenté Figure \ref{BancPot}.\\
+Dans cette partie l'étude se porte sur la synchronisation des deux métronomes avec un pot vibrant couplé à une plaque en bois. Le pot vibrant est un objet permettant d'exciter le système par le biais, ici, d'un pas de vis relié avec une vis à la plaque en bois. La fréquence d'excitation est réglée à l'aide d'un GBF et son amplitude est controllée avec l'amplificateur associé à celui-ci. Le dispositif expérimental est présenté Figure \ref{BancPot}.\\
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{Bancpotvibrant}
@@ -190,24 +190,31 @@ f_{GBF}=\frac{\alpha \times \omega}{2 \times 60}
 \label{fgbf}
 \end{equation}
 
-Avec :\\
+\underline{Avec}:\\
 \begin{itemize}[label=\textbullet, leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm,font=\tiny]
-\item $\alpha$ qui correspond à la valeur de battement des métronome déterminée par la position de la masselotte ;
-\item $\omega$ est la valeur de l'harmonique étudiée (ex: 1 si on cherche à exciter le système à l'aide de la fondamentale, 1,25 pour la quarte etc.) ;
-\item 2 $\times$ 60 car il y a deux clics pour une période temporelle et soixante est le nombre de secondes en une minute.\\
+\item $\alpha$ qui correspond à la valeur de battement des métronomes (BPM) déterminée par la position de la masselotte ;
+\item $\omega$ est la valeur de l'harmonique étudiée (\underline{ex}: 1 si on cherche à exciter le système à l'aide de la fondamentale, 1.25 pour la tierce, 2 pour l'octave, etc) ;
+\item 2 $\times$ 60 car il y a deux clics pour une période temporelle et soixante les secondes en une minute.\\
 \end{itemize}
 
-Ainsi avec ce nouveau banc de mesure il est possible d'effectuer une nouvelle étude sur les limites de la synchronisation et d'observer l'influence de l'amplitude apportée à l'amplificateur sur la synchronisation. En premier lieu l'expérience consiste à observer si, avec le pot vibrant la limite de la synchronisation entre les deux métronomes changent. La manipulation est menée à plusieurs reprise et une nouvelle limite basse de synchronisation est déterminée, elle est de 100 BPM, ce qui correspond à une fréquence de 0.83 Hz réglée sur le GBF. Cette limite est plus basse que lorsque le système socille librement, sans pot vibrant (176 BPM).\\
+Ainsi avec ce banc de mesure il est possible d'effectuer une nouvelle étude sur les limites de la synchronisation et d'observer l'influence de l'amplitude apportée à l'amplificateur sur la synchronisation. En premier lieu l'expérience consiste à observer si, avec le pot vibrant la limite de la synchronisation entre les deux métronomes change. La manipulation est menée à plusieurs reprises et une nouvelle limite basse de synchronisation est obersvée, elle est de 100 BPM, ce qui correspond à une fréquence de 0.83 Hz sur le GBF. Cette limite est plus basse que lorsque le système socille librement, sans pot vibrant (176 BPM).\\
 
-	Ensuite l'étude se porte sur l'influence de l'amplitude fournie au pot vibrant. En effet si la différence entre la fréquence fournie au pot vibrant et la fréquence de battement réglée sur les métronomes est importante la synchronisation ne se produit pas. En revanche, quand l'amplitude donnée au pot est plus importante on observe que, malgré l'écart de fréquence, il y a synchronisation. Il s'agit donc de définir un digramme de stabilité où est représenté la synchronisation en fonction de l'amplitude fournie et du rapport d'octave. La manipulation consiste a fixer aux métronomes une certaine fréquence d'oscillation et avec le générateur envoyer cette même fréquence dans un premier temps. L'amplitude est fixée au maximum de ce que peut délivrer l'amplificateur. Ensuite la fréquence est augmentée progressivement afin de déterminer la limite de synchronisation.\\
-
-HARNOLD TONGUES : Réré, faudrai une photocopie du bouquin ou un truc comme ça, je pense pas qu'on arrivera a tirer quelque chose du programme matlab.. :/
+Ensuite l'étude se porte sur l'influence de l'amplitude fournie au pot vibrant. Si la différence entre la fréquence fournie au pot vibrant et le battement réglé sur les métronomes est importante la synchronisation se produit uniquement lors de rapports harmoniques multiples de la fondamentale. Il s'agit donc de définir un digramme de stabilité où est représenté la synchronisation en fonction de l'amplitude fournie et du rapport harmonique. Dans un premier temps, la manipulation consiste a fixer aux métronomes un certain battement et avec le générateur, envoyer la fréquence correspondante au pot vibrant. L'amplitude est fixée au maximum de ce que peut délivrer l'amplificateur. Ensuite la fréquence est augmentée progressivement afin de déterminer les limites de synchronisation. Sur la figure \ref{Arnold} sont présentés les résulats observés lors de cette experience.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{Arnold_tongues_exp_trait}
+\caption{Evolution de l'apparence du phénomène de synchronisation selon les fréquences d'excitation du sytème}\label{Arnold}
+\end{figure}\\
+Les parties colorés représentes une zone de synrhonisation. Celle-ci est la plus importante à la fondamentale. Certaines zones très précises (quarte et tierce), sont difficilement observable. Ce graphique se répète d'octave en octave \cite{panta}.
+\newpage
+\null
+\thispagestyle{empty}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Analyse Numérique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Comparaison théorie}
-Le traitement des données enregistrées est effectué dans cette partie par le biais d'un programme de traitement présenté en \underline{Annexe \ref{Traitement}}, basé sur le rapport des L3 \cite{ram}. Les courbes obtenues sont analysées et comparées avec le modèle théorique. Précisons que la théorie ici n'est pas mathématique, mais est celle énoncé de manière écrite dans les différentes ouvrages bibliographiques contribuant à l'élaboration de ce rapport.
+Le traitement des données enregistrées est effectué dans cette partie par le biais d'un programme de traitement présenté en \underline{Annexe \ref{Traitement}}, basé sur l'un d'eux, présent dans le rapport des L3 \cite{ram}. Les courbes obtenues sont analysées et comparées avec le modèle théorique. Précisons que la théorie ici n'est pas mathématique, mais est celle énoncée de manière écrite dans les différentes ouvrages bibliographiques contribuant à l'élaboration de ce rapport.
 
 \subsection{Analyse de la caractérisation}
 Dans un premier temps, lors de la caractérisation de chaque métronome dans un cas général, les courbes suivantes sont obtenues. En premier lieu, l'évolution temporelle des clics des métronomes est obtenue sur la figure \ref{CaractérisationT}.
@@ -217,29 +224,29 @@ Dans un premier temps, lors de la caractérisation de chaque métronome dans un 
 \caption{Evolution temporelle de deux métronomes déssolidarisés aux fréquences différentes}\label{CaractérisationT}
 \end{figure}\\
 
-On remarque distinctement deux battements périodiques dans le temps sans variation de vitesse des battements. Ensuite il est possible de voir leurs évolutions fréquentielles sur la figure \ref{CaractérisationF}.
+On remarque distinctement deux clics périodiques dans le temps synonymes d'une abscence de variation de vitesse des battements. Ensuite il est possible de voir leurs évolutions fréquentielles sur la figure \ref{CaractérisationF}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{Caracterisation_Frequence_200BPM}
 \caption{Evolution fréquentielle de deux métronomes déssolidarisés au cours du temps}\label{CaractérisationF}
 \end{figure}\\
 
-Les deux métronomes sont bien à des périodes, donc des fréquences différentes. Il est possible d'observer qu'un métronome mécanique bat difficilement de manière précisément constante au cours du temps. Il y a une absence totale de synchronisation.
+Les deux métronomes sont bien à des périodes, donc fréquences, différentes. Il est possible d'observer qu'un métronome mécanique bat difficilement de manière très précisément constante au cours du temps. Cette experience sert de support et de référence pour la suite, il y a par conséquence, une absence totale de synchronisation.
 
 \subsection{Analyse de la synchronisation}
-Dans cette partie, les analyses précédentes sont répétées dans le cas où les métronomes sont associés au banc de mesure \ref{Banc}. Les analyses précédentes sont renouvelées. Ainsi l'évolution temporelle des clics suivent le graphique présenté en Figure \ref{SynchronisationT}.
+Dans cette partie, les analyses précédentes sont répétées dans le cas où les métronomes sont associés au banc de mesure \ref{Banc}. Les experiences et analyses précédentes sont elles  aussi renouvelées. Ainsi l'évolution temporelle des clics suivent le graphique présenté en Figure \ref{SynchronisationT}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{Synchro_Temporelle_208BPM}
 \caption{Evolution temporelle de deux métronomes solidaire d'un support au cours du temps}\label{SynchronisationT}
 \end{figure}
-Ici, une synchronisation apparait dans les dix premières secondes de la mesure effectuée. En effet, les battements de chaque métronome étant différents au début de la mesure, on observe très largement une variation de celles-ci jusqu'à atteindre un battement étant à peu de chose près, la moyenne des deux de chaque métronome. Ensuite, l'évolution fréquentielle est obtenue sur la Figure \ref{SynchronisationF}.
+Ici, une synchronisation apparait dans les dix premières secondes de la mesure effectuée. En effet, les battements de chaque métronome étant différents au début de la mesure, on observe très largement une variation de ceux-ci jusqu'à atteindre un battement étant à peu près, la moyenne des deux de chaque métronome. Ensuite, l'évolution fréquentielle est obtenue sur la Figure \ref{SynchronisationF}.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=1\textwidth]{Synchro_Frequence_208BPM}
 \caption{Evolution fréquentielle des deux métronomes solidaire d'un support au cours du temps}\label{SynchronisationF}
 \end{figure}
-Il est dans ce cas très aisé d'observer le phénomène de synchronisation appliqué dans notre cas. En effet, les deux métronomes ont une période, donc fréquence d'oscillation, différente au début, et au cours du temps finisse par changer celle-ci pour former un battement par minute correspondant théoriquement à la moyenne des deux \cite{piko}.
+Il est dans ce cas très aisé d'observer le phénomène de synchronisation appliqué à notre système. En effet, les deux métronomes ont une période, donc fréquence d'oscillation, différente au début, et au cours du temps finissent par changer celle-ci pour former un battement correspondant théoriquement à la moyenne des deux \cite{piko}. Les métronomes battent alors de manière synchrone, avec comme énoncé précédement, une tendance générale a battre en opposition phase.
 
 \section{Pot vibrant}
 Les expériences menées avec le pot vibrant apportent des résultats très concluants. Contrairement aux oscillations libres, lorsqu'on force le système à osciller, la synchronisation opère toujours en phase. En effet, les masselottes vont naturellement osciller dans le sens qui demande le moins d'effort, donc de frottements, au système. L'évolution temporelle des clics est très similaire à celle du système sans pot vibrant. Sur la figure \ref{SynchroFP} est donc directement présenté l'évolution fréquentielle du système.
@@ -249,17 +256,21 @@ Les expériences menées avec le pot vibrant apportent des résultats très conc
 \caption{Evolution de la fréquence de deux métronomes au cours du temps avec présence d'un pot vibrant}
 \label{SynchroFP}
 \end{figure}
-Ici, les variation sont importantes, l'état d'équilibre est plus long à obtenir mais plus stable dans ce cas. Sur la Figure \ref{SynchroPP} est présenté l'évolution temporelle de la différence de période.
+Ici, les variation sont importantes, l'état d'équilibre est plus long à obtenir (~ 30 secondes) mais plus stable sur le long terme, les métronomes ont très peu d'écart entre leurs périodes respectives, celle-ci est aussi dans ce cas la moyenne des deux. Sur la Figure \ref{SynchroPP} est présenté l'évolution temporelle de la différence de période.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=1\textwidth]{PotVibrant_Synchro_Periode_200BPM}
 \caption{Evolution de la différence de période de deux métronomes au cours du temps avec présence d'un pot vibrant}
 \label{SynchroPP}
 \end{figure}
-Il est dors et déjà possible d'observer que quelques valeurs sortent de l'allure générale de la courbe à intervalle de temps presque régulier. Ce phénomène est explicité au chapitre suivant.`
+L'allure générale est celle d'un cosinus amorti, qui tend vers zéro. Cela correspond à une synchronisation du système. Il est possible d'observer que quelques valeurs sortent de l'allure générale de la courbe à intervalle de temps presque régulier. Ce phénomène est explicité au chapitre suivant.
 
 \section{"Trap phase"}
 La Figure \ref{SynchroPP} , permet d'observer un phénomène physique connu sous le nom de "{\it Trap Phase}" ou encore "{\it Attrappage de Phase}". Aux valeurs de temps 27 et 38 secondes de ce graphique, une valeur de différence de période sors totalement de l'allure générale de la courbe est la valeur n'est absolument pas représentative de l'évolution du phénomène recherché. Cela est dû à une imperfection soudaine dans les oscillations du système qui se traduit par ces valeurs, qui n'influent pas sur les oscillations directement suivantes et qui se répètent après un certain temps.
+\newpage
+\null
+\thispagestyle{empty}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter*{Conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -274,10 +285,9 @@ L'étape suivante serai de poser les équations régissant le mouvement, afin de
 \renewcommand{\bibname}{Références}
 \begin{thebibliography}{2}
 \section*{Bibliographie}
-% \bibitem[label]{cle} Auteur, TITRE, editeur, annee
+\bibitem{ram} M. RAMSEIER, M. ROBIN, {\it Projet L3 SPI: Phénomène de Synchronisation de Pendules Appliqué aux Métronomes, 2012}
 \bibitem{piko} A. PIKOVSKY, {\it Synchronisation, A universal concept in nonlinear sciences, Cambridge Nonlinear Science Series 12, 2001}
 \bibitem{panta} J. PANTALEONE, {\it Synchronization of metronomes, Am. J. Phys., Vol. 70, No 10, October 2002}
-\bibitem{ram} M. RAMSEIER, M. ROBIN, {\it Projet L3 SPI: Phénomène de Synchronisation de Pendules Appliqué aux Métronomes, 2012}
 \section*{Webographie}
 \bibitem{wiki} \url{http://fr.wikipedia.org/wiki/Synchronisation}
 \bibitem{cntrl} \url{http://www.cntrl.fr/lexicographie/synchronisation}
@@ -505,12 +515,8 @@ end
 end
 end
 end
-%On créé les vecteurs 't1' et 't2' contenant
-%chacun 'n1-1' et 'n2-1' lignes de 0 :
 t1 = zeros(n1-1,1);
 t2 = zeros(n1-1,1);
-%On créé les vecteurs 'P1' et 'P2' contenant
-%chacun 'n1-1' et 'n2-1' lignes de 0 :
 P1 = zeros(n1-1,1);
 P2 = zeros(n2-1,1);
 %On créé une boucle remplaçant chaque valeur de 'P1' et 'P2' par
